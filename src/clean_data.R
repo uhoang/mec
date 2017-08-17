@@ -100,3 +100,7 @@ for (i in 1:folds) {
 print('The average of accuracy rate is:', mean(accuracy_list))
 
 
+
+model <- lda(cluster ~ ., data = train.lda)
+
+model_coef <- coef(model) # final product.
