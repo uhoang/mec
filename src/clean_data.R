@@ -71,5 +71,32 @@ ggplot(aes(x = X, y = Y), data = tsne_data) + geom_point(aes(color = cluster))
 # Building linear discriminant ananlysis for segments
 
 library(MASS) # import library for LDA
+library(caret)
+
+
+train.lda <- train %>% select(one_of(vars)) %>%
+                  mutate(cluster = factor(pam_fit$clustering))
+
+scatterPlot(train.lda)
+
+model <- lda(cluster ~ . , data = train.lda)
+
+# create k-Fold cross-validation for LDA
+
+folds <- 5
+
+idx_list <- createFolds(train.lda$cluster, k = 5)
+
+accuracy_list <- c()
+for (i in 1:folds) {
+  oos_idx <- idx_list[[i]]
+  temp_train <- train.lda[-oos_idx, ]
+  temp_test <- train.lda[oos_idx, ]
+  model <- lda(cluster ~ . , data = temp_train)
+  pred <- predict(model, temp_test)$class
+  accuracy_list[i] <- mean(pred == temp_train$cluster)
+}
+
+print('The average of accuracy rate is:', mean(accuracy_list))
 
 
