@@ -1,0 +1,60 @@
+# Analysis prototype
+
+It's imperative that the development of one or more approach be considered before one settles on the method of the final deliverable
+
+- to identify the analysis goals and objectives 
+
+e.g: what are the goals and objective of this typing tool?
+what business values is it contributing?
+
+- clear understanding of requirements-definition of the analysis (help to determine the scope of the project)
+
+critical-thinking questions:
+e.g: 
+- what are requirements and definition of analysis that I need to know?
+- what key features must go into the analysis?
+- what features can safely be left out?
+- what aspects of the techniques must be evaluated and tested, to ensure that the correct decisions have been made?
+- what new techniques can be incorporated to enhance the final deliverable?
+
+- research and map out the capabilities and limitations of different approaches for this particular dataset. 
+
+- assess the technique decision in the process of developing the typing tool 
+
+- set up some checkpoints to communicate early on the version of the solution. 
+
+Given those steps, we take. I'm confident to deliver the high quality of analysis
+
+- ability for you to visualize early on the look-and-feel of the solution (rephrase this statement)
+
+set up some checkpoints before the final delivery. This would allow us to confirm that the solution that I am developing was in-line with your expectations.
+
+
+
+So I'm hearing you say that ...
+Did I get that right?
+
+That sounds doable; I'l look into it and get back to you
+
+
+About the timeline: 
+
+From my experience, I estimate that this analysis will take at least a week to do assuming that the data is in the clean and nice format and ready for analyzing. 
+In case, if the dataset comes in is quit messy and requires more time to preprocess and clean up. 
+
+For example, 
+  -contains a lot of missing item-response, which requires some imputation treatments
+  -some observations are low-quality and required filtering
+
+From survey questionnaires: I can see additional items of health problems are added to both condition and prevention question. Increasing the number of inputs adds complexities to the clustering model, requires some exploration and testing
+
+Depends on the quality and variable type of the data: 
+  - I will need to spend time on assessing the proper techniques, measurements to use
+  - number of segments to retain
+  - testing their validation/or their stability
+  - interpret the clusters via descriptive statistics
+
+  - Once we are satisfied with those groups, estimate the linear combination of the original fetures that gives the best possible separation between the segments. And finally find prediction rate of the 
+
+
+  I want my final product to be neat and high quality
