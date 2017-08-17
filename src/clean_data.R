@@ -9,6 +9,9 @@ library(ggplot2) # for visualization
 #### Clean data --------------------------------
 
 
+#### Age encoding 
+train$age_break <- ifelse(is.na(train$age), NA, 
+                    ifelse(train$age %in% 58:67, 1, 0))              
 #### one-hot encoding the conditions and preventions
 
 
@@ -18,7 +21,7 @@ library(ggplot2) # for visualization
 # preventions (Presence/Absence) are first convertd into 
 # 16 binary columns and then the Dice coefficient is used
 
-vars <- c(paste0('con', 1:8), paste0('prev', 1:8))
+vars <- c('age_break',paste0('con', 1:8), paste0('prev', 1:8))
 gower_dist <- daisy(train[ , vars], metric = 'gower')
 
 summary(gower_dist)
@@ -58,4 +61,15 @@ pam_results <- train %>% dplyr::select(one_of(vars)) %>%
 # Via visualization 
 
 tsne_obj <- Rtsne(gower_dist, is_distance = TRUE)
-tsne_data <- tsne_obj$Y %>%                          
+tsne_data <- tsne_obj$Y %>% data.frame() %>% 
+            setNames(c('X', 'Y')) %>% 
+            mutate(cluster = factor(pam_fit$clustering))
+
+
+ggplot(aes(x = X, y = Y), data = tsne_data) + geom_point(aes(color = cluster))
+
+# Building linear discriminant ananlysis for segments
+
+library(MASS) # import library for LDA
+
+
