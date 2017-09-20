@@ -91,3 +91,19 @@ removing respondents that fail attention checks is likely to introduce a demogra
 being past the trap which induces them to invest less effort into their responses. An alternative hypothesis is the feeling that a researcher has tried to trap them may reduce trust or the feeling of reciprocity with survey researcher or organization that may influence willingness to engage thoughtfully and carefully with the survey.
 
 Mturk: crowdsourcinng internet marketplace
+
+A key ingredient of clustering and segmentation:
+  -the definition of these distance metrics (between observations), which need to be defined creatively based on contextual knowledge and not only using “black box” mathematical equations and techniques.
+
+
+
+clusterboot algorithm uses the Jaccard coefficient, a similarity measure between sets. The Jaccard similarity between two sets A and B is the ratio of the number of elements in the intersection of A and B over the number of elements in the union of A and B. The basic general strategy is as follows:
+
+    Cluster the data as usual.
+    Draw a new dataset (of the same size as the original) by resampling the original dataset with replacement (meaning that some of the data points may show up more than once, and others not at all). Cluster the new dataset.
+    For every cluster in the original clustering, find the most similar cluster in the new clustering (the one that gives the maximum Jaccard coefficient) and record that value. If this maximum Jaccard coefficient is less than 0.5, the original cluster is considered to be dissolved-it didn’t show up in the new clustering. A cluster that’s dissolved too often is probably not a “real” cluster.
+    Repeat steps 2-3 several times.
+
+The cluster stability of each cluster in the original clustering is the mean value of its Jaccard coefficient over all the bootstrap iterations. As a rule of thumb, clusters with a stability value less than 0.6 should be considered unstable. Values between 0.6 and 0.75 indicate that the cluster is measuring a pattern in the data, but there isn’t high certainty about which points should be clustered together. Clusters with stability values above about 0.85 can be considered highly stable (they’re likely to be real clusters).
+
+Different clustering algorithms can give different stability values, even when the algorithms produce highly similar clusterings, so clusterboot() is also measuring how stable the clustering algorithm is.
