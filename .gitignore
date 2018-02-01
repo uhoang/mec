@@ -1,5 +1,5 @@
 # ignore the following files
-note/
+notes/
 data/
 output/train.rds
 # output/overall_proportion.xlsx

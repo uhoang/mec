@@ -49,7 +49,7 @@ select_vars <- grep('h_|Q_|age_break|cluster|uuid|date', names(train), value = T
 
 saveRDS(train[ , select_vars], 'output/deidentified_train.rds')
 
-saveRDS(train, 'output/train.rds')
+# saveRDS(train, 'output/train.rds')
 
 # Cluster interpretation via descriptive statistics
 # pam_results <- train %>% dplyr::select(dplyr::one_of(c(vars, 'cluster'))) %>%
