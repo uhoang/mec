@@ -45,7 +45,12 @@ pam_fit <- pam(gower_dist, diss = TRUE, k = 6)
 cluster[as.numeric(names(pam_fit$clustering))] <- paste0('Cluster', pam_fit$clustering)
 train$cluster <- cluster
 
+select_vars <- grep('h_|Q_|age_break|cluster|uuid|date', names(train), value = TRUE, ignore.case = TRUE)
+
+saveRDS(train[ , select_vars], 'output/deidentified_train.rds')
+
 saveRDS(train, 'output/train.rds')
+
 # Cluster interpretation via descriptive statistics
 # pam_results <- train %>% dplyr::select(dplyr::one_of(c(vars, 'cluster'))) %>%
 #                          # mutate(cluster = cluster) %>% 

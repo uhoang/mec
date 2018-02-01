@@ -4,7 +4,8 @@ library(survey)
 # library(dplyr)
 # library(tidyr)
 # load dataset
-train <- readRDS('output/train.rds')
+# train <- readRDS('output/train.rds')
+train <- readRDS('output/deidentified_train.rds')
 
 train$h_AGE <- h_age[train$h_AGE]
 

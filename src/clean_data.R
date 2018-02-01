@@ -1,4 +1,4 @@
-set.seed(168) # for reproducibility
+set.seed(168) # for l
 source('settings.R')
 
 #### Clean data --------------------------------
@@ -48,3 +48,11 @@ temp_train <- train[!no_cond_id, vars]
 
 # temp_train <- temp_train[apply(temp_train[ , vars], 1, function(x) any(x == 1)), ]
 # temp_train <- sapply(temp_train, 2, function(x) ifelse(x == 1, TRUE, FALSE))
+
+# 8 health conditions (presence/Absence) and  health
+# preventions (presence/absence) are first coverted into
+# 16 binary columns and then Dice coefficicent is used
+# train$Q_CONDITIONr17 <- apply(temp_train[paste0('Q_CONDTIONr', 8:16)], 1, function(x) any(x == 1))
+# train$Q_PREVENTIONr18 <- apply(train[pate0('Q_PREVENTIONr', 5:17)], 1, function(x) any(x == 1))
+
+# temp_train < 
