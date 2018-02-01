@@ -4,32 +4,32 @@ This project was built in R language for the data team at Moutain Equipment Coor
 
 ### Project structure
 
-├── misc
-│   ├── helper_functions.R
-│   ├── make_marginals.R
-│   └── rename_vars.R
-├── output
-│   ├── clusterboot.RData
-│   ├── cluster_by_uuid.csv
-│   ├── deidentified_train.rds
-│   ├── demo_profiling_variables_by_cluster.xlsx
-│   ├── gower_mat.RData
-│   ├── results.xlsx
-│   └── train.rds
-├── README.md
-├── settings.R
-├── src
-│   ├── clean_data.R
-│   ├── create_models.R
-│   ├── make_tab_2.R
-│   ├── make_tab.R
-│   └── make_weight.R
-└── viz
-    ├── distance_hist.png
-    ├── silhouette_width_to_select_k.png
-    ├── tsne_cluster_7.png
-    ├── tsne_cluster.png
-    └── viz.tar.gz
+|-- misc
+    |-- helper_functions.R
+    |-- make_marginals.R
+    |-- rename_vars.R
+|-- output
+    |-- clusterboot.RData
+    |-- cluster_by_uuid.csv
+    |-- deidentified_train.rds
+    |-- demo_profiling_variables_by_cluster.xlsx
+    |-- gower_mat.RData
+    |-- results.xlsx
+    |-- train.rds
+├--README.md
+├--settings.R
+├--src
+    ├--clean_data.R
+    ├--create_models.R
+    ├--make_tab_2.R
+    ├--make_tab.R
+    └--make_weight.R
+└--viz
+    ├--distance_hist.png
+    ├--silhouette_width_to_select_k.png
+    ├--tsne_cluster_7.png
+    ├--tsne_cluster.png
+    └--viz.tar.gz
 
 ### Project goals: 
 - To build a consumer health lifestyle segmentation based on their age, current health condition and the health conditions they want to prevent in the future
