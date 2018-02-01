@@ -1,8 +1,8 @@
 # Consumer lifestyle segmentation
 
-This project was built in R language for the data team at Moutain Equipment Coorporation. Sharing outputs have been deidentified for privacy protection. 
+This project was built in R language for the data team at Moutain Equipment Coorporation. Sharing outputs have been de-identified to protect individual privacy.
 
-### Project structure
+### Repository's structure
 
 ```bash
 .
@@ -34,30 +34,29 @@ This project was built in R language for the data team at Moutain Equipment Coor
     └── viz.tar.gz
 ```
 
-
 ### Project goals: 
-- To build a consumer health lifestyle segmentation based on their age, current health condition and the health conditions they want to prevent in the future
-- Identify segments and intepret its meaning via descriptive statistics
-- Provide titbits by profiling questions on lifestyle and social demogpraphics
-- Future work: prototype a health lifestyle scoring tool to predict a class / segment for a new customer
+- Build consumer health lifestyle segmentation based on respondents' age, current health condition and the conditions they like to prevent in the future
+- Identify clusters and intepret its meaning via descriptive statistics
+- Provide titbits through profile questions on lifestyle and social demographics
+- Future work: prototype a lifestyle scoring tool to predict a class / segment for a new consumer
 
 ### Methods
 1. Inputs:
-  * A multiple-select question on health condition and prevention is converted to a set of binary variables. Each of binary variables represent one category in the question. The varible is coded 1 if the category is selected and 0 otherwise. 
-  * Age is dichotomized into two groups: less than 58 or 58 plus 
+  - A multiple-select question on health condition and prevention is converted to a set of binary variables. Each of binary variables represent one category in the question. The varible is coded 1 if the category is selected and 0 otherwise. 
+  - Age is dichotomized into two groups: less than 58 or 58 plus 
 
 2. Analysis:
 
-   2.1. Data quality checks: to remove the low-quality data, that is speeding through the survey by giving low-effort responses, engaging in variety of other behaviors that negatively impact response quality
+   2.1. Data quality checks: to remove the low-quality data. That is a respondent speeding through the survey by giving low-effort responses, engaging in variety of other behaviors that negatively impact response quality.
 
    2.2. Select a similarity measure: Gower's dissimilarity coefficient is considered for a asymmetric binary data (source: https://support.sas.com/documentation/cdl/en/statug/63033/HTML/default/viewer.htm#statug_distance_sect003.htm)
   
    2.3. Select a clustering algorithm: 
-     * Partitioning around medoids (PAM). Describe the iterative steps in PAM as following:
+     * Partitioning around medoids (PAM). Here are iterative steps in PAM:
        + Choose k random entities to become the medoids
        + Assign every entity to its closest medoid (usign our custom distance matrix in this case)
        + For each cluster, identify the observation that woud yield the lowest average distance if it were to be re-assigned as the medoid. if so, make this observation the new medoid
-       + If at least one medoid has changed, return to step 2. Otherwise, end the alg
+       + If at least one medoid has changed, return to the second step. Otherwise, end the algorithm
 
      * Also consider k-means. However, PAM is more robust to noise and outliers when compared to k-means, and has the added benefit of having an observation serve as the exemplar for each clustser
       Both run time and memory are quadratic (i.e O(n^2))
