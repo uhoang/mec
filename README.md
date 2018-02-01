@@ -43,8 +43,8 @@ This project was built in R language for the data team at Moutain Equipment Coor
 
 ### Methods
 1. Inputs:
-   1.1. A multiple-select question on health condition and prevention is converted to a set of binary variables. Each of binary variables represent one category in the question. The varible is coded 1 if the category is selected and 0 otherwise. 
-   1.2. Age is dichotomized into two groups: less than 58 or 58 plus 
+  1.1. A multiple-select question on health condition and prevention is converted to a set of binary variables. Each of binary variables represent one category in the question. The varible is coded 1 if the category is selected and 0 otherwise. 
+  1.2. Age is dichotomized into two groups: less than 58 or 58 plus 
 
 2. Analysis:
    2.1. Data quality checks: to remove the low-quality data, that is speeding through the survey by giving low-effort responses, engaging in variety of other behaviors that negatively impact response quality
@@ -62,11 +62,11 @@ This project was built in R language for the data team at Moutain Equipment Coor
       Both run time and memory are quadratic (i.e O(n^2))
       
    2.4. Select the number of clusters
-    A variety of metrics exist to help choose the number of clusters: silhouette width, an internal validation metric which is aggregated measure of how similar an observation is to its own cluster compared its closest neighboring cluster. The metric can range from -1 to 1, where higher values are better. 
-    Also use the scree plot to decide the number of custers to retain
+   A variety of metrics exist to help choose the number of clusters: silhouette width, an internal validation metric which is aggregated measure of how similar an observation is to its own cluster compared its closest neighboring cluster. The metric can range from -1 to 1, where higher values are better. 
+   Also use the scree plot to decide the number of custers to retain
   
    2.5. Visualize clusters in lower dimensional space
    Use t-distributed stochastic neighborhood embedding method to preserve local structure of the data such as to make clusters visible in a 2D or 3D visualization. 
 
-   2.6. Assess the cluster stability 
+   2.6. Assess the cluster stability
    I employed clusterboot algorithm, which uses the Jaccard coefficient to measure the similarity between sets generated over different bootstrap samples. The cluster stability of each cluster in the original clustering is the mean value of its Jaccard coefficient over all the bootstrap iterations. As a rule of thumb, clusters with a stability value less than 0.6 should be considered unstable. Values between 0.6 and 0.75 indicate that the cluster is measuring a pattern in the data, but there isn’t high certainty about which points should be clustered together. Clusters with stability values above about 0.85 can be considered highly stable (they’re likely to be real clusters).
