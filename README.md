@@ -53,11 +53,10 @@ This project was built in R language for the data team at Moutain Equipment Coor
   
   2.3. Select a clustering algorithm: 
     * Partitioning around medoids (PAM). Describe the iterative steps in PAM as following:
-      + Choose k random entities to become the medoids
-      + Assign every entity to its closest medoid (usign our custom distance matrix in this case)
-      + For each cluster, identify the observation that woud yield the lowest average distance if it were to be re-assigned as the medoid. if so, make this observation the new medoid
-      + If at least one medoid has changed, return to step 2. Otherwise, end the alg
-
+        * Choose k random entities to become the medoids
+        * Assign every entity to its closest medoid (usign our custom distance matrix in this case)
+        * For each cluster, identify the observation that woud yield the lowest average distance if it were to be re-assigned as the medoid. if so, make this observation the new medoid
+        * If at least one medoid has changed, return to second step. Otherwise, end the alg
     * Also consider k-means. However, PAM is more robust to noise and outliers when compared to k-means, and has the added benefit of having an observation serve as the exemplar for each clustser
       Both run time and memory are quadratic (i.e O(n^2))
       
