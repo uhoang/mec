@@ -49,20 +49,18 @@ This project was built in R language for the data team at Moutain Equipment Coor
 2. Analysis:
   2.1. Data quality checks: to remove the low-quality data, that is speeding through the survey by giving low-effort responses, engaging in variety of other behaviors that negatively impact response quality
 
-  2.2. Select a similarity measure: Gower's dissimilarity coefficient is considered for a asymmetric binary data (source: https://support.sas.com/documentation/cdl/en/statug/63033/HTML/default/viewer.htm#statug_distance_sect003.htm
-)
+  2.2. Select a similarity measure: Gower's dissimilarity coefficient is considered for a asymmetric binary data (source: https://support.sas.com/documentation/cdl/en/statug/63033/HTML/default/viewer.htm#statug_distance_sect003.htm)
+  
   2.3. Select a clustering algorithm: 
-    Partitioning around medoids (PAM)
-      It is an iterative clustering procedure
-      + choose k random entities to become the medoids
-      + assign every entity to its closest medoid (usign our custom distance matrix in this case)
-      + for each cluster, identify the observation that woud yield the lowest average distance if it were to be re-assigned as the medoid. if so, make this observation the new medoid
+    * Partitioning around medoids (PAM). Describe the iterative steps in PAM as following:
+      + Choose k random entities to become the medoids
+      + Assign every entity to its closest medoid (usign our custom distance matrix in this case)
+      + For each cluster, identify the observation that woud yield the lowest average distance if it were to be re-assigned as the medoid. if so, make this observation the new medoid
       + If at least one medoid has changed, return to step 2. Otherwise, end the alg
 
-    Also consider k-means: 
-      PAM is more robust to noise and outliers when compared to k-means, and has the added benefit of having an observation serve as the exemplar for each clustser
-
+    * Also consider k-means. However, PAM is more robust to noise and outliers when compared to k-means, and has the added benefit of having an observation serve as the exemplar for each clustser
       Both run time and memory are quadratic (i.e O(n^2))
+      
   2.4. Select the number of clusters
   A variety of metrics exist to help choose the number of clusters: silhouette width, an internal validation metric which is aggregated measure of how similar an observation is to its own cluster compared its closest neighboring cluster. The metric can range from -1 to 1, where higher values are better. 
   Also use the scree plot to decide the number of custers to retain
