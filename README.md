@@ -43,7 +43,7 @@ This project was built in R language for the data team at Moutain Equipment Coor
 ### Methods
 1. Inputs:
   - A multiple-select question on health condition and prevention is converted to a set of binary variables. Each of binary variables represent one category in the question. The varible is coded 1 if the category is selected and 0 otherwise. 
-  - Age is dichotomized into two groups: less than 58 or 58 plus 
+  - Age is dichotomized into two groups: less than 58 and 58+
 
 2. Analysis:
 
