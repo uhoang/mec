@@ -52,18 +52,16 @@ This project was built in R language for the data team at Moutain Equipment Coor
    2.2. Select a similarity measure: to group observations together, we first need to define some notion of similarity between observations. Since our data contain categorical variables, we will use a distance metric called Gower distance. The distance is always a number between 0(idential) and 1(maximally dissimilar). When all vairables are binary (with asymmetric significance of categories: 'present' vs 'absent' attribute), then gower uses Jaccard matching coefficient to measure the distance.  
   
    2.3. Select a clustering algorithm: 
-     * Partitioning around medoids (PAM). Here are iterative steps in PAM:
+     * Explain how Partitioning around medoids (PAM) works
        + Choose k random entities to become the medoids
        + Assign every entity to its closest medoid (usign our custom distance matrix in this case)
        + For each cluster, identify the observation that woud yield the lowest average distance if it were to be re-assigned as the medoid. if so, make this observation the new medoid
        + If at least one medoid has changed, return to the second step. Otherwise, end the algorithm
 
-     * Also consider k-means. However, PAM is more robust to noise and outliers when compared to k-means, and has the added benefit of having an observation serve as the exemplar for each clustser
-      Both run time and memory are quadratic (i.e O(n^2))
+     * Also test k-means algorithm. However, PAM is more robust to noise and outliers when compared to k-means, and has the added benefit of having an observation serve as the exemplar for each cluster. Both algorithms have quadratic run time and memory (i.e O(n^2))
       
    2.4. Select the number of clusters
-   A variety of metrics exist to help choose the number of clusters: silhouette width, an internal validation metric which is aggregated measure of how similar an observation is to its own cluster compared its closest neighboring cluster. The metric can range from -1 to 1, where higher values are better. 
-   Also use the scree plot to decide the number of custers to retain
+   A variety of metrics exist to help choose the number of clusters: silhouette width, an internal validation metric which is aggregated measure of how similar an observation is to its own cluster compared its closest neighboring cluster. The metric can range from -1 to 1, where higher values are better. I also use the scree plot to decide the number of custers to retain
   
    2.5. Visualize clusters in lower dimensional space
    Use t-distributed stochastic neighborhood embedding method to preserve local structure of the data such as to make clusters visible in a 2D or 3D visualization. 
