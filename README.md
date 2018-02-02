@@ -49,7 +49,7 @@ This project was built in R language for the data team at Moutain Equipment Coor
 
    2.1. Data quality checks: to remove the low-quality data. That is a respondent speeding through the survey by giving low-effort responses, engaging in variety of other behaviors that negatively impact response quality.
 
-   2.2. Select a similarity measure: Gower's dissimilarity coefficient is considered for a asymmetric binary data (source: https://support.sas.com/documentation/cdl/en/statug/63033/HTML/default/viewer.htm#statug_distance_sect003.htm)
+   2.2. Select a similarity measure: to group observations together, we first need to define some notion of similarity between observations. Since our data contain categorical variables, we will use a distance metric called Gower distance. The distance is always a number between 0(idential) and 1(maximally dissimilar). When all vairables are binary (with asymmetric significance of categories: 'present' vs 'absent' attribute), then gower uses Jaccard matching coefficient to measure the distance.  
   
    2.3. Select a clustering algorithm: 
      * Partitioning around medoids (PAM). Here are iterative steps in PAM:
