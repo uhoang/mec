@@ -42,16 +42,19 @@ This project was built in R language for the data team at Moutain Equipment Coor
 
 ### Methods
 1. Inputs:
-  - A multiple-select question on health condition and prevention is converted to a set of binary variables. Each of binary variables represent one category in the question. The varible is coded 1 if the category is selected and 0 otherwise. 
-  - Age is dichotomized into two groups: less than 58 and 58+
+  - A multiple-select question on health condition and prevention is converted to a set of binary variables. Each binary variable represents one category in the question. The varible is coded 1 if the category is selected and 0 otherwise. 
+  - Age is a continuous variable, and has a range from 18 to 70 years old. 
 
 2. Analysis:
 
-   2.1. Data quality checks: to remove the low-quality data. That is a respondent speeding through the survey by giving low-effort responses, engaging in variety of other behaviors that negatively impact response quality.
+   2.1. Data quality control: <br/>
+   We remove any low-quality data, that is a respondent speeding through the survey by giving low-effort responses, engaging in variety of other behaviors that negatively impact response quality.
 
-   2.2. Select a similarity measure: to group observations together, we first need to define some notion of similarity between observations. Since our data contain categorical variables, we will use a distance metric called Gower distance. The distance is always a number between 0(idential) and 1(maximally dissimilar). When all vairables are binary (with asymmetric significance of categories: 'present' vs 'absent' attribute), then gower uses Jaccard matching coefficient to measure the distance.  
+   2.2. Transform inputs: we group some health/prevention conditions into category to reduce the complexity of the inputs. This step helps to produce a cleaner interpretation of clusters in a later step. 
+   
+   2.3. Select a similarity measure: to group observations together, we first need to define some notion of similarity between observations. Since our data contain categorical variables, we will use a distance metric called Gower distance. The distance is always a number between 0(idential) and 1(maximally dissimilar). When all vairables are binary (with asymmetric significance of categories: 'present' vs 'absent' attribute), then gower uses Jaccard matching coefficient to measure the distance.  
   
-   2.3. Select a clustering algorithm: 
+   2.4. Select a clustering algorithm: 
      * Explain how Partitioning around medoids (PAM) works
        + Choose k random entities to become the medoids
        + Assign every entity to its closest medoid (usign our custom distance matrix in this case)
