@@ -48,7 +48,7 @@ This project was built in R language for the data team at Moutain Equipment Coor
 2. Analysis:
 
    2.1. Data quality control: <br/>
-   We remove any low-quality data, that is a respondent speeding through the survey by giving low-effort responses, engaging in variety of other behaviors that negatively impact response quality.
+    We remove any low-quality data, that is a respondent speeding through the survey by giving low-effort responses, engaging in variety of other behaviors that negatively impact response quality.
 
    2.2. Transform inputs: we group some health/prevention conditions into category to reduce the complexity of the inputs. This step helps to produce a cleaner interpretation of clusters in a later step. 
    
