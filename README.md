@@ -48,25 +48,25 @@ This project was built in R language for the data team at Moutain Equipment Coor
 2. Analysis:
 
    2.1. Data quality control: <br/>
-   &nbsp;&nbsp;&nbsp; We remove any low-quality data, that is a respondent speeding through the survey by giving low-effort responses, engaging in variety of other behaviors that negatively impact response quality.
+   &nbsp;&nbsp;&nbsp; We remove any low-quality observation, in which a respondent speeds through the survey by giving low-effort responses, and engages in variety of other behaviors that negatively impact response quality.
 
    2.2. Transform inputs: <br/>
    &nbsp;&nbsp;&nbsp; We group some health/prevention conditions into category to reduce the complexity of the inputs. This step helps to produce a cleaner interpretation of clusters in a later step. 
    
    2.3. Select a similarity measure: <br/>
-   &nbsp;&nbsp;&nbsp; To group observations together, we first need to define some notion of similarity between observations. Since our data contain categorical variables, we will use a distance metric called Gower distance. The distance is always a number between 0(idential) and 1(maximally dissimilar). When all vairables are binary (with asymmetric significance of categories: 'present' vs 'absent' attribute), then gower uses Jaccard matching coefficient to measure the distance.  
+   &nbsp;&nbsp;&nbsp; To group observations together, we first need to define some notion of similarity between observations. Since the data contains nominal variables, we will use a distance metric called Gower distance. The distance is always a number between 0 (idential) and 1 (maximally dissimilar). When all vairables are binary (with asymmetric significance of categories: 'present' vs 'absent' attribute), then gower uses Jaccard matching coefficient to measure the distance.  
   
    2.4. Select a clustering algorithm: 
+     * We apply both PAM and k-means algorithm for clustering. It is known that PAM is more robust to noise and outliers when compared to k-means, and it has the added benefit of having an observation serve as the exemplar for each cluster. Both algorithms have quadratic run time and memory (i.e: O(n^2))
+     
      * Explain how Partitioning around medoids (PAM) works
        + Choose k random entities to become the medoids
        + Assign every entity to its closest medoid (usign our custom distance matrix in this case)
        + For each cluster, identify the observation that woud yield the lowest average distance if it were to be re-assigned as the medoid. if so, make this observation the new medoid
        + If at least one medoid has changed, return to the second step. Otherwise, end the algorithm
-
-     * Also test k-means algorithm. However, PAM is more robust to noise and outliers when compared to k-means, and has the added benefit of having an observation serve as the exemplar for each cluster. Both algorithms have quadratic run time and memory (i.e O(n^2))
       
    2.4. Select the number of clusters <br/>
-   &nbsp;&nbsp;&nbsp; A variety of metrics exist to help choose the number of clusters: silhouette width, an internal validation metric which is aggregated measure of how similar an observation is to its own cluster compared its closest neighboring cluster. The metric can range from -1 to 1, where higher values are better. I also use the scree plot to decide the number of custers to retain
+   &nbsp;&nbsp;&nbsp; A variety of metrics exist to help choose the number of clusters. In this analysis, we use Silhouette width, an internal validation metric. It is an aggregated measure of how similar an observation is to its own cluster compared its closest neighboring cluster. The metric can range from -1 to 1, where higher values are better. We then plot silhouette width for clusters ranging from 2 to 10 for the PAM algorithm. Even two clusters have the highest Silhouette width, we want to keep the diverse number of clusters for more interesting interpretation.
   
    2.5. Visualize clusters in lower dimensional space <br/>
    &nbsp;&nbsp;&nbsp; Use t-distributed stochastic neighborhood embedding method to preserve local structure of the data such as to make clusters visible in a 2D or 3D visualization. 
