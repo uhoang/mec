@@ -1,11 +1,26 @@
 set.seed(168) # for l
 source('settings.R')
+library(openxlsx)
 
 #### Clean data --------------------------------
 
 data_file <- list.files(data_path, pattern = 'centrum', full.names = TRUE)
-
+  
 train <- read.xlsx(data_file, sheet = 1)
+
+#### Data quality checks
+# look at the distribution of time completion in secs
+# summary(train$qtime) 
+
+# check for respondent status 1(Terminated), 2(Overquota), 3(Qualified), 4(Partial)
+# table(train$status, useNA = 'ifany')
+
+# check whether or not the response is real interview
+# table(train$vtest, useNA = 'ifany')
+
+# check for age screening 18-70
+# table(train$Q_AGESCREENERr1, useNA = 'ifany')
+
 #### Age encoding 
 train$age_break <- ifelse(is.na(train$Q_AGESCREENERr1), NA, 
                     ifelse(train$Q_AGESCREENERr1 >= 58, 1, 0))              
