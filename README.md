@@ -51,10 +51,10 @@ This project was built in R language for the data team at Moutain Equipment Coor
    &nbsp;&nbsp;&nbsp; We remove any low-quality data, that is a respondent speeding through the survey by giving low-effort responses, engaging in variety of other behaviors that negatively impact response quality.
 
    2.2. Transform inputs: <br/>
-   We group some health/prevention conditions into category to reduce the complexity of the inputs. This step helps to produce a cleaner interpretation of clusters in a later step. 
+   &nbsp;&nbsp;&nbsp; We group some health/prevention conditions into category to reduce the complexity of the inputs. This step helps to produce a cleaner interpretation of clusters in a later step. 
    
    2.3. Select a similarity measure: <br/>
-   To group observations together, we first need to define some notion of similarity between observations. Since our data contain categorical variables, we will use a distance metric called Gower distance. The distance is always a number between 0(idential) and 1(maximally dissimilar). When all vairables are binary (with asymmetric significance of categories: 'present' vs 'absent' attribute), then gower uses Jaccard matching coefficient to measure the distance.  
+   &nbsp;&nbsp;&nbsp; To group observations together, we first need to define some notion of similarity between observations. Since our data contain categorical variables, we will use a distance metric called Gower distance. The distance is always a number between 0(idential) and 1(maximally dissimilar). When all vairables are binary (with asymmetric significance of categories: 'present' vs 'absent' attribute), then gower uses Jaccard matching coefficient to measure the distance.  
   
    2.4. Select a clustering algorithm: 
      * Explain how Partitioning around medoids (PAM) works
@@ -65,11 +65,11 @@ This project was built in R language for the data team at Moutain Equipment Coor
 
      * Also test k-means algorithm. However, PAM is more robust to noise and outliers when compared to k-means, and has the added benefit of having an observation serve as the exemplar for each cluster. Both algorithms have quadratic run time and memory (i.e O(n^2))
       
-   2.4. Select the number of clusters
-   A variety of metrics exist to help choose the number of clusters: silhouette width, an internal validation metric which is aggregated measure of how similar an observation is to its own cluster compared its closest neighboring cluster. The metric can range from -1 to 1, where higher values are better. I also use the scree plot to decide the number of custers to retain
+   2.4. Select the number of clusters <br/>
+   &nbsp;&nbsp;&nbsp; A variety of metrics exist to help choose the number of clusters: silhouette width, an internal validation metric which is aggregated measure of how similar an observation is to its own cluster compared its closest neighboring cluster. The metric can range from -1 to 1, where higher values are better. I also use the scree plot to decide the number of custers to retain
   
-   2.5. Visualize clusters in lower dimensional space
-   Use t-distributed stochastic neighborhood embedding method to preserve local structure of the data such as to make clusters visible in a 2D or 3D visualization. 
+   2.5. Visualize clusters in lower dimensional space <br/>
+   &nbsp;&nbsp;&nbsp; Use t-distributed stochastic neighborhood embedding method to preserve local structure of the data such as to make clusters visible in a 2D or 3D visualization. 
 
-   2.6. Assess the cluster stability
-   I employed clusterboot algorithm, which uses the Jaccard coefficient to measure the similarity between sets generated over different bootstrap samples. The cluster stability of each cluster in the original clustering is the mean value of its Jaccard coefficient over all the bootstrap iterations. As a rule of thumb, clusters with a stability value less than 0.6 should be considered unstable. Values between 0.6 and 0.75 indicate that the cluster is measuring a pattern in the data, but there isn’t high certainty about which points should be clustered together. Clusters with stability values above about 0.85 can be considered highly stable (they’re likely to be real clusters).
+   2.6. Assess the cluster stability <br/>
+   &nbsp;&nbsp;&nbsp; I employed clusterboot algorithm, which uses the Jaccard coefficient to measure the similarity between sets generated over different bootstrap samples. The cluster stability of each cluster in the original clustering is the mean value of its Jaccard coefficient over all the bootstrap iterations. As a rule of thumb, clusters with a stability value less than 0.6 should be considered unstable. Values between 0.6 and 0.75 indicate that the cluster is measuring a pattern in the data, but there isn’t high certainty about which points should be clustered together. Clusters with stability values above about 0.85 can be considered highly stable (they’re likely to be real clusters).
