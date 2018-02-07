@@ -2,52 +2,53 @@ library(dplyr)
 library(cluster) # for gower similarity and pam
 library(Rtsne) # t-SNE plot
 library(ggplot2) # for visualization
+library(ulibs)
+library(ggthemes)
 # library(openxlsx)
 source('src/clean_data.R')
 
-gower_dist <- daisy(temp_train, metric = 'gower')
+n_vars <- ncol(temp_train)
+temp_train[ , vars] <- sapply(temp_train[ , vars], FUN = function(x) ifelse(x == 1, TRUE, FALSE))
+gower_dist <- daisy(temp_train, metric = 'gower', type = list(asymm = 1:n_vars))
 
-# gower_mat <- as.matrix(gower_dist)
-# save(gower_mat, file = 'output/gower_mat.RData')
-
-# temp_train[, vars[-1]] <- sapply(temp_train[ , vars[-1]], function(x) ifelse(x == 1, TRUE, FALSE))
-# temp_train[, vars] <- sapply(temp_train[ , vars], function(x) ifelse(x == 1, TRUE, FALSE))
-# gower_dist <- daisy(temp_train[ , vars], metric = 'gower', type = list(asymm =  1:nvars))
-# gower_dist <- daisy(temp_train[, vars], metric = 'gower', type = list(asymm = 2:nvars))
+saveRDS(gower_dist, file = 'output/gower_dist.rds')
 
 # sanity check, print out the most similar and dissimilar pair
 # in the dataset to see if it makes sense
 # Choosing a clustering alg
 
 # Calculate silhouette width for many k using PAM
-# sil_width <- c(NA)
+sil_width <- c(NA)
 
-# for (i in 2:10) {
-#   pam_fit <- pam(gower_dist, diss = TRUE, k = i)
-#   sil_width[i] <- pam_fit$silinfo$avg.width
-# }
+for (i in 2:10) {
+  pam_fit <- pam(gower_dist, diss = TRUE, k = i)
+  sil_width[i] <- pam_fit$silinfo$avg.width
+}
 
-# data <- data.frame(x = 2:10, y = sil_width[-1])
+data <- data.frame(x = 2:10, y = sil_width[-1])
 
-# Plot sihouette width (higher is better)
-# ggplot(data, aes(x = x, y = y)) + 
-# geom_line(size = 0.8) +
-# geom_point(size = 2.5) +
-# my_theme() +
-# theme(axis.title = element_text(size = 13.5)) + 
-# ylab('Silhouette width') +
-# xlab('Number of clusters') 
+## Plot sihouette width (higher is better)
+ggplot(data, aes(x = x, y = y)) + 
+geom_line(size = 0.5) +
+geom_point(size = 1.5) +
+my_theme() +
+theme(axis.title = element_text(size = 9),
+      axis.text.x = element_text(size = 7),
+      axis.text.y = element_text(size = 7)) + 
+ylab('Silhouette width') +
+xlab('Number of clusters') 
 
 # ggsave(filename = 'viz/silhouette_width_to_select_k.png', width = 5.5, height = 5.5)
+ggsave(filename = 'viz/silhouette_width_vs_num_clusters.png', width = 5.5, height = 3.5)
 
-# Fit data using PAM on 6 clusters
-pam_fit <- pam(gower_dist, diss = TRUE, k = 6)
+# Fit data using PAM on number of clusters with the highest sihoutte width
+pam_fit <- pam(gower_dist, diss = TRUE, k = which.max(sil_width))
 cluster[as.numeric(names(pam_fit$clustering))] <- paste0('Cluster', pam_fit$clustering)
 train$cluster <- cluster
 
 select_vars <- grep('h_|Q_|age_break|cluster|uuid|date', names(train), value = TRUE, ignore.case = TRUE)
 
-saveRDS(train[ , select_vars], 'output/deidentified_train.rds')
+saveRDS(train[ , select_vars], 'output/clustered_data.rds')
 
 # saveRDS(train, 'output/train.rds')
 

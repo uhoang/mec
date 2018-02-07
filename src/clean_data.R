@@ -50,9 +50,12 @@ train$Q_PREVENTIONr_pain <- apply(train[ , pain_vars], 1, function(x) as.numeric
 vars <- c('age_break', paste0('Q_CONDITIONr', c(1, 2, 4, 5, 6, 7, 8, 9, 16, '_chronic', '_pain')), 
                        paste0('Q_PREVENTIONr', c(1, 2, 4, 5, 6, 7, 8 , 9, 10, 11, '_chronic','_pain')))
   
+added_no_cond_id <- apply(train[ , grep('Q_', vars, value = TRUE)], 1, function(x) all(x == 0))
+
 # vars <- c('age_break', paste0('Q_CONDITIONr', 1:16), paste0('Q_PREVENTIONr', 1:17))
 # vars <- c(paste0('Q_CONDITIONr', 1:16), paste0('Q_PREVENTIONr', 1:17))
-temp_train <- train[!no_cond_id, vars]
+temp_train <- train[!no_cond_id & ! added_no_cond_id, vars]
+cluster[no_cond_id | added_no_cond_id] <- 'No conditions'
 
 # 8 health conditions (Presence/Absence) and 8 health
 # preventions (Presence/Absence) are first convertd into 
