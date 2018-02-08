@@ -49,7 +49,11 @@ train$Q_PREVENTIONr_pain <- apply(train[ , pain_vars], 1, function(x) as.numeric
 # vars <- c('age_break', paste0('Q_CONDITIONr', 1:7), paste0('Q_PREVENTIONr', 1:4))
 vars <- c('age_break', paste0('Q_CONDITIONr', c(1, 2, 4, 5, 6, 7, 8, 9, 16, '_chronic', '_pain')), 
                        paste0('Q_PREVENTIONr', c(1, 2, 4, 5, 6, 7, 8 , 9, 10, 11, '_chronic','_pain')))
-  
+
+# To remove the missing values returned by gower distance due to all conditions and
+# preventions are not selected. When the variable is an asymmetric variable, negative pairs are neglete
+# Remove all records that no conditions or preventions is selected. Its rationale is to avoid missing 
+# values returned gower distance due to all pairs of negative values are discard for asymmetric variables
 added_no_cond_id <- apply(train[ , grep('Q_', vars, value = TRUE)], 1, function(x) all(x == 0))
 
 # vars <- c('age_break', paste0('Q_CONDITIONr', 1:16), paste0('Q_PREVENTIONr', 1:17))
@@ -72,5 +76,3 @@ cluster[no_cond_id | added_no_cond_id] <- 'No conditions'
 # 16 binary columns and then Dice coefficicent is used
 # train$Q_CONDITIONr17 <- apply(temp_train[paste0('Q_CONDTIONr', 8:16)], 1, function(x) any(x == 1))
 # train$Q_PREVENTIONr18 <- apply(train[pate0('Q_PREVENTIONr', 5:17)], 1, function(x) any(x == 1))
-
-# temp_train < 

@@ -8,7 +8,11 @@ library(ggthemes)
 source('src/clean_data.R')
 
 n_vars <- ncol(temp_train)
+
+# Convert all variables to logical to treat them as asymmetric binary variables
 temp_train[ , vars] <- sapply(temp_train[ , vars], FUN = function(x) ifelse(x == 1, TRUE, FALSE))
+
+# Specify an asymmetry of binary variables in gower distance
 gower_dist <- daisy(temp_train, metric = 'gower', type = list(asymm = 1:n_vars))
 
 saveRDS(gower_dist, file = 'output/gower_dist.rds')
@@ -19,13 +23,22 @@ saveRDS(gower_dist, file = 'output/gower_dist.rds')
 
 # Calculate silhouette width for many k using PAM
 sil_width <- c(NA)
+# kmean_sil_width <- c(NA)
 
 for (i in 2:10) {
+  # PAM 
   pam_fit <- pam(gower_dist, diss = TRUE, k = i)
   sil_width[i] <- pam_fit$silinfo$avg.width
+  
+  # K-means
+  # kmean_fit <- kmeans(gower_dist, centers = i)
+  # sil <- silhouette(kmean_fit$cluster, gower_dist)
+  # kmean_sil_width[i] <- mean(sil[ , 'sil_width'])
 }
 
+
 data <- data.frame(x = 2:10, y = sil_width[-1])
+# data <- data.frame(x = 2:10, y = kmean_sil_width[-1])
 
 ## Plot sihouette width (higher is better)
 ggplot(data, aes(x = x, y = y)) + 
@@ -39,7 +52,8 @@ ylab('Silhouette width') +
 xlab('Number of clusters') 
 
 # ggsave(filename = 'viz/silhouette_width_to_select_k.png', width = 5.5, height = 5.5)
-ggsave(filename = 'viz/silhouette_width_vs_num_clusters.png', width = 5.5, height = 3.5)
+# ggsave(filename = 'viz/silhouette_width_vs_num_clusters.png', width = 5.5, height = 3.5)
+ggsave(filename = 'viz/kmean_silhouette_width_vs_num_clusters.png', width = 5.5, height = 3.5)
 
 # Fit data using PAM on number of clusters with the highest sihoutte width
 pam_fit <- pam(gower_dist, diss = TRUE, k = which.max(sil_width))
@@ -49,15 +63,16 @@ train$cluster <- cluster
 select_vars <- grep('h_|Q_|age_break|cluster|uuid|date', names(train), value = TRUE, ignore.case = TRUE)
 
 saveRDS(train[ , select_vars], 'output/clustered_data.rds')
-
 # saveRDS(train, 'output/train.rds')
 
 # Cluster interpretation via descriptive statistics
-# pam_results <- train %>% dplyr::select(dplyr::one_of(c(vars, 'cluster'))) %>%
-#                          # mutate(cluster = cluster) %>% 
-#                          group_by(cluster) %>%
-#                          do(the_summary = summary(.))
-# pam_results$the_summary
+pam_results <- train %>% dplyr::select(dplyr::one_of(c(vars, 'cluster'))) %>%
+                         # mutate(cluster = cluster) %>% 
+                         group_by(cluster) %>%
+                         do(the_summary = summary(.))
+pam_results$the_summary
+
+
 
 # Via visualization 
 # plot gower distance for 6 clusters in 2D

@@ -1,0 +1,16 @@
+Help files with alias or concept or title matching ‘inner_join’ using
+regular expression matching:
+
+
+dplyr::join             Join two tbls together
+  Aliases: inner_join
+dplyr::join.tbl_df      Join data frame tbls
+  Aliases: inner_join.tbl_df
+
+
+Type '?PKG::FOO' to inspect entries 'PKG::FOO', or 'TYPE?PKG::FOO' for
+entries like 'PKG::FOO-TYPE'.
+
+
+
+
