@@ -77,7 +77,7 @@ pam_results$the_summary
 # Via visualization 
 # plot gower distance for 6 clusters in 2D
 # gower_dist <- daisy(temp_train[ , vars], metric = 'gower')
-# tsne_obj <- Rtsne(gower_dist, is_distance = TRUE)
+# tsne_obj <- Rtsne(gower_dist, is_distance = TRUE)b
 
 # tsne_data <- tsne_obj$Y %>% data.frame() %>% 
 #             setNames(c('X', 'Y')) %>% 
