@@ -1,4 +1,4 @@
-library(dplyr)
+# library(dplyr)
 library(cluster) # for gower similarity and pam
 library(Rtsne) # t-SNE plot
 library(ggplot2) # for visualization
@@ -23,17 +23,18 @@ saveRDS(gower_dist, file = 'output/gower_dist.rds')
 
 # Calculate silhouette width for many k using PAM
 sil_width <- c(NA)
-# kmean_sil_width <- c(NA)
+kmean_sil_width <- c(NA)
 
 for (i in 2:10) {
+  cat(paste0('\rRun PAM and K-means for ', i, ' clusters'))
   # PAM 
   pam_fit <- pam(gower_dist, diss = TRUE, k = i)
   sil_width[i] <- pam_fit$silinfo$avg.width
   
   # K-means
-  # kmean_fit <- kmeans(gower_dist, centers = i)
-  # sil <- silhouette(kmean_fit$cluster, gower_dist)
-  # kmean_sil_width[i] <- mean(sil[ , 'sil_width'])
+  kmean_fit <- kmeans(gower_dist, centers = i)
+  sil <- silhouette(kmean_fit$cluster, gower_dist)
+  kmean_sil_width[i] <- mean(sil[ , 'sil_width'])
 }
 
 
@@ -52,8 +53,8 @@ ylab('Silhouette width') +
 xlab('Number of clusters') 
 
 # ggsave(filename = 'viz/silhouette_width_to_select_k.png', width = 5.5, height = 5.5)
-# ggsave(filename = 'viz/silhouette_width_vs_num_clusters.png', width = 5.5, height = 3.5)
-ggsave(filename = 'viz/kmean_silhouette_width_vs_num_clusters.png', width = 5.5, height = 3.5)
+ggsave(filename = 'viz/pam_silhouette_width_vs_num_clusters.png', width = 5.5, height = 3.5)
+#ggsave(filename = 'viz/kmean_silhouette_width_vs_num_clusters.png', width = 5.5, height = 3.5)
 
 # Fit data using PAM on number of clusters with the highest sihoutte width
 pam_fit <- pam(gower_dist, diss = TRUE, k = which.max(sil_width))
