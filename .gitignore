@@ -5,3 +5,10 @@ output/train.rds
 # output/overall_proportion.xlsx
 output/*.xlsx
 output/*.csv
+output/gower_mat.RData
+output/deidentified_train.rds
+output/cluster_by_uuid.csv
+output/demo_profiling_variables_by_cluster.xlsx
+output/results.xlsx
+output/*.RData
+.gitignore
