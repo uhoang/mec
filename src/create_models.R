@@ -113,3 +113,16 @@ print(cf, statistics = c('mean', 'dissolution', 'recovery'))
 plot(cf, xlim=c(0,1),breaks=seq(0,1,by=0.05))
 
 
+# Fit data using PAM on number of clusters with the highest sihoutte width
+pam_fit <- pam(gower_dist, diss = TRUE, k = 3)
+pam_clusters <- pam_fit$clustering
+
+kmean_fit <- kmeans(gower_dist, centers = 3)
+kmean_clusters <- kmean_fit$cluster
+
+make_tsne_plot(tsne_obj, pam_clusters, 
+              output = FALSE, 
+              filepath = paste0('viz/pam_tsne_', 3, 'clusters.png'))
+
+# kmean_fit <- kmeans(gower_dist, centers = which.max(kmean_sil_width))
+# kmean_clusters <- kmean_fit$cluster
