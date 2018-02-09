@@ -124,5 +124,16 @@ make_tsne_plot(tsne_obj, pam_clusters,
               output = FALSE, 
               filepath = paste0('viz/pam_tsne_', 3, 'clusters.png'))
 
+
+cluster[as.numeric(names(pam_clusters))] <- paste0('Cluster', pam_clusters)
+train$cluster <- cluster
+
 # kmean_fit <- kmeans(gower_dist, centers = which.max(kmean_sil_width))
 # kmean_clusters <- kmean_fit$cluster
+
+# Cluster interpretation via descriptive statistics
+pam_results <- train %>% dplyr::select(dplyr::one_of(c(vars, 'cluster'))) %>%
+                         # mutate(cluster = cluster) %>% 
+                         group_by(cluster) %>%
+                         do(the_summary = summary(.))
+pam_results$the_summary
