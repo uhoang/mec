@@ -1,0 +1,15 @@
+* Cluster stability assessment *
+Cluster method:  kmeans 
+Full clustering results are given as parameter result
+of the clusterboot object, which also provides further statistics
+of the resampling results.
+Number of resampling runs:  100 
+
+Number of clusters found in data:  2 
+
+ Clusterwise Jaccard bootstrap (omitting multiple points) mean:
+[1] 0.9707125 0.9755757
+dissolved:
+[1] 1 1
+recovered:
+[1] 99 99
