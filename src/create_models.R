@@ -38,22 +38,29 @@ for (i in 2:10) {
 }
 
 
-data <- data.frame(x = 2:10, y = sil_width[-1])
-# data <- data.frame(x = 2:10, y = kmean_sil_width[-1])
+pam_data <- data.frame(x = 2:10, y = sil_width[-1])
+kmean_data <- data.frame(x = 2:10, y = kmean_sil_width[-1])
 
 ## Plot sihouette width (higher is better)
-ggplot(data, aes(x = x, y = y)) + 
-geom_line(size = 0.5) +
-geom_point(size = 1.5) +
-my_theme() +
-theme(axis.title = element_text(size = 9),
-      axis.text.x = element_text(size = 7),
-      axis.text.y = element_text(size = 7)) + 
-ylab('Silhouette width') +
-xlab('Number of clusters') 
+# py <- ggplot(data, aes(x = x, y = y)) + 
+# geom_line(size = 0.5) +
+# geom_point(size = 1.5) +
+# my_theme() +
+# theme(axis.title = element_text(size = 9),
+#       axis.text.x = element_text(size = 7),
+#       axis.text.y = element_text(size = 7)) + 
+# ylab('Silhouette width') +
+# xlab('Number of clusters') 
+
+source('misc/make_silhouette_plot.R')
+px <- make_silhouette_plot(pam_data)
+py <- make_silhouette_plot(kmean_data)
+ggarrange(px, py, labels = c('PAM', 'K-Means'), ncol = 2, nrow = 1)
+
+ggsave(filename = 'viz/silhouette_width.png', width = 8, height = 4)
 
 # ggsave(filename = 'viz/silhouette_width_to_select_k.png', width = 5.5, height = 5.5)
-ggsave(filename = 'viz/pam_silhouette_width_vs_num_clusters.png', width = 5.5, height = 3.5)
+# ggsave(filename = 'viz/pam_silhouette_width_vs_num_clusters.png', width = 5.5, height = 3.5)
 #ggsave(filename = 'viz/kmean_silhouette_width_vs_num_clusters.png', width = 5.5, height = 3.5)
 
 
@@ -72,16 +79,15 @@ source('misc/make_tsne_plot.R')
 # Create t-SNE object from the obtained Gower distances
 tsne_obj <- Rtsne(gower_dist, is_distance = TRUE)
 
-# See how well-seperated clusters that PAM detects
-make_tsne_plot(tsne_obj, pam_clusters, 
-              output = TRUE, 
-              filepath = paste0('viz/pam_tsne_', which.max(sil_width), 'clusters.png'))
+# # See how well-seperated clusters that PAM detects
+tx <- make_tsne_plot(tsne_obj, pam_clusters)
 
-# See how well-seperated clusters that K-means detects
-make_tsne_plot(tsne_obj, kmean_clusters,
-              output = TRUE,
-              filepath = paste0('viz/kmean_tsne_', which.max(kmean_sil_width), 'clusters.png'))
+# # See how well-seperated clusters that K-means detects
+ty <- make_tsne_plot(tsne_obj, kmean_clusters)
 
+ggarrange(tx, ty, labels = c('PAM', 'K-Means'), ncol = 2, nrow = 1)
+
+ggsave(filename = 'viz/tsne.png', width = 10, height = 5)
 
 cluster[as.numeric(names(pam_clusters))] <- paste0('Cluster', pam_clusters)
 train$cluster <- cluster
@@ -104,12 +110,12 @@ pam_results$the_summary
 library(fpc)
 # Test stability of clusters using bootstrap for PAM
 cf_pam <- clusterboot(gower_dist, B = 100, 
-                  bootmethod = c('boot', 'subset', 'noise', 'jitter'), 
+                  bootmethod = c('boot'), #, 'subset', 'noise', 'jitter'
                   clustermethod = claraCBI,
-                  k = 5, seed = 12345)
+                  k = 10, seed = 12345)
 
 cf_kmean <- clusterboot(gower_dist, B = 100, 
-                  bootmethod = c('boot'), 
+                  bootmethod = c('boot', 'subset'), 
                   clustermethod = kmeansCBI,
                   k = 2, seed = 12345)
 
@@ -123,18 +129,24 @@ sink()
 
 
 # Fit data using PAM on number of clusters with the highest sihoutte width
-pam_fit <- pam(gower_dist, diss = TRUE, k = 3)
+pam_fit <- pam(gower_dist, diss = TRUE, k = 4)
 pam_clusters <- pam_fit$clustering
 
 kmean_fit <- kmeans(gower_dist, centers = 2)
 kmean_clusters <- kmean_fit$cluster
 
-make_tsne_plot(tsne_obj, kmean_clusters, 
-              output = TRUE, 
+make_tsne_plot(tsne_obj, pam_clusters, 
+              output = FALSE, 
               filepath = paste0('viz/kmean_tsne_', 2, 'clusters.png'))
 
 
-cluster[as.numeric(names(pam_clusters))] <- paste0('Cluster', pam_clusters)
+make_tsne_plot(tsne_obj, kmean_clusters, 
+              output = FALSE, 
+              filepath = paste0('viz/kmean_tsne_', 2, 'clusters.png'))
+
+
+# cluster[as.numeric(names(pam_clusters))] <- paste0('Cluster', pam_clusters)
+cluster[as.numeric(names(kmean_clusters))] <- paste0('Cluster', kmean_clusters)
 train$cluster <- cluster
 
 # kmean_fit <- kmeans(gower_dist, centers = which.max(kmean_sil_width))
@@ -143,13 +155,13 @@ train$cluster <- cluster
 vars <- grep('Q_COND|Q_PREV|Q_AGE', names(train), value = TRUE)
 
 # Cluster interpretation via descriptive statistics
-pam_results <- train %>% dplyr::select(dplyr::one_of(c(vars, 'cluster'))) %>%
+kmean_results <- train %>% dplyr::select(dplyr::one_of(c(vars, 'cluster'))) %>%
                          # mutate(cluster = cluster) %>% 
                          group_by(cluster) %>%
                          do(the_summary = summary(.))
 
 sink('output/summary.txt')
-print(pam_results$the_summary)
+print(kmean_results$the_summary)
 sink()
 
 

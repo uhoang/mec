@@ -45,7 +45,7 @@ train$Q_PREVENTIONr_pain <- apply(train[ , pain_vars], 1, function(x) as.numeric
 
 
 #### Calculating distance ------------------------
-
+# vars <- c('age_break', paste0('Q_CONDITIONr', 1:16), paste0('Q_PREVENTIONr', 1:17))
 # vars <- c('age_break', paste0('Q_CONDITIONr', 1:7), paste0('Q_PREVENTIONr', 1:4))
 vars <- c('age_break', paste0('Q_CONDITIONr', c(1, 2, 4, 5, 6, 7, 8, 9, 16, '_chronic', '_pain')), 
                        paste0('Q_PREVENTIONr', c(1, 2, 4, 5, 6, 7, 8 , 9, 10, 11, '_chronic','_pain')))

@@ -1,0 +1,223 @@
+[[1]]
+ Q_AGESCREENERr1 Q_CONDITIONr1    Q_CONDITIONr2    Q_CONDITIONr3    
+ Min.   :18.00   Min.   :0.0000   Min.   :0.0000   Min.   :0.00000  
+ 1st Qu.:29.00   1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.00000  
+ Median :41.00   Median :0.0000   Median :0.0000   Median :0.00000  
+ Mean   :41.78   Mean   :0.1414   Mean   :0.1529   Mean   :0.07389  
+ 3rd Qu.:54.00   3rd Qu.:0.0000   3rd Qu.:0.0000   3rd Qu.:0.00000  
+ Max.   :70.00   Max.   :1.0000   Max.   :1.0000   Max.   :1.00000  
+ Q_CONDITIONr4    Q_CONDITIONr5    Q_CONDITIONr6    Q_CONDITIONr7    
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.00000  
+ 1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.00000  
+ Median :0.0000   Median :0.0000   Median :0.0000   Median :0.00000  
+ Mean   :0.1338   Mean   :0.1032   Mean   :0.2497   Mean   :0.09936  
+ 3rd Qu.:0.0000   3rd Qu.:0.0000   3rd Qu.:0.0000   3rd Qu.:0.00000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.00000  
+ Q_CONDITIONr8    Q_CONDITIONr9     Q_CONDITIONr10    Q_CONDITIONr11   
+ Min.   :0.0000   Min.   :0.00000   Min.   :0.00000   Min.   :0.00000  
+ 1st Qu.:0.0000   1st Qu.:0.00000   1st Qu.:0.00000   1st Qu.:0.00000  
+ Median :0.0000   Median :0.00000   Median :0.00000   Median :0.00000  
+ Mean   :0.1503   Mean   :0.04076   Mean   :0.03949   Mean   :0.03057  
+ 3rd Qu.:0.0000   3rd Qu.:0.00000   3rd Qu.:0.00000   3rd Qu.:0.00000  
+ Max.   :1.0000   Max.   :1.00000   Max.   :1.00000   Max.   :1.00000  
+ Q_CONDITIONr12    Q_CONDITIONr13    Q_CONDITIONr14    Q_CONDITIONr15   
+ Min.   :0.00000   Min.   :0.00000   Min.   :0.00000   Min.   :0.00000  
+ 1st Qu.:0.00000   1st Qu.:0.00000   1st Qu.:0.00000   1st Qu.:0.00000  
+ Median :0.00000   Median :0.00000   Median :0.00000   Median :0.00000  
+ Mean   :0.03567   Mean   :0.06369   Mean   :0.07006   Mean   :0.06624  
+ 3rd Qu.:0.00000   3rd Qu.:0.00000   3rd Qu.:0.00000   3rd Qu.:0.00000  
+ Max.   :1.00000   Max.   :1.00000   Max.   :1.00000   Max.   :1.00000  
+ Q_CONDITIONr16    Q_CONDITIONr98   Q_PREVENTIONr1   Q_PREVENTIONr2   
+ Min.   :0.00000   Min.   :0.0000   Min.   :0.0000   Min.   :0.00000  
+ 1st Qu.:0.00000   1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.00000  
+ Median :0.00000   Median :0.0000   Median :0.0000   Median :0.00000  
+ Mean   :0.09427   Mean   :0.2471   Mean   :0.1019   Mean   :0.03057  
+ 3rd Qu.:0.00000   3rd Qu.:0.0000   3rd Qu.:0.0000   3rd Qu.:0.00000  
+ Max.   :1.00000   Max.   :1.0000   Max.   :1.0000   Max.   :1.00000  
+ Q_PREVENTIONr3   Q_PREVENTIONr4   Q_PREVENTIONr5    Q_PREVENTIONr6  
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.00000   Min.   :0.0000  
+ 1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.00000   1st Qu.:0.0000  
+ Median :0.0000   Median :0.0000   Median :0.00000   Median :0.0000  
+ Mean   :0.1541   Mean   :0.1605   Mean   :0.09554   Mean   :0.1924  
+ 3rd Qu.:0.0000   3rd Qu.:0.0000   3rd Qu.:0.00000   3rd Qu.:0.0000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.00000   Max.   :1.0000  
+ Q_PREVENTIONr7   Q_PREVENTIONr8   Q_PREVENTIONr9   Q_PREVENTIONr10 
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.0000  
+ Median :0.0000   Median :0.0000   Median :0.0000   Median :0.0000  
+ Mean   :0.0828   Mean   :0.2102   Mean   :0.1045   Mean   :0.1809  
+ 3rd Qu.:0.0000   3rd Qu.:0.0000   3rd Qu.:0.0000   3rd Qu.:0.0000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+ Q_PREVENTIONr11   Q_PREVENTIONr12   Q_PREVENTIONr13   Q_PREVENTIONr14  
+ Min.   :0.00000   Min.   :0.00000   Min.   :0.00000   Min.   :0.00000  
+ 1st Qu.:0.00000   1st Qu.:0.00000   1st Qu.:0.00000   1st Qu.:0.00000  
+ Median :0.00000   Median :0.00000   Median :0.00000   Median :0.00000  
+ Mean   :0.05096   Mean   :0.04968   Mean   :0.08662   Mean   :0.03822  
+ 3rd Qu.:0.00000   3rd Qu.:0.00000   3rd Qu.:0.00000   3rd Qu.:0.00000  
+ Max.   :1.00000   Max.   :1.00000   Max.   :1.00000   Max.   :1.00000  
+ Q_PREVENTIONr15   Q_PREVENTIONr16   Q_PREVENTIONr17   Q_PREVENTIONr98 
+ Min.   :0.00000   Min.   :0.00000   Min.   :0.00000   Min.   :0.0000  
+ 1st Qu.:0.00000   1st Qu.:0.00000   1st Qu.:0.00000   1st Qu.:0.0000  
+ Median :0.00000   Median :0.00000   Median :0.00000   Median :0.0000  
+ Mean   :0.07389   Mean   :0.07389   Mean   :0.08025   Mean   :0.1567  
+ 3rd Qu.:0.00000   3rd Qu.:0.00000   3rd Qu.:0.00000   3rd Qu.:0.0000  
+ Max.   :1.00000   Max.   :1.00000   Max.   :1.00000   Max.   :1.0000  
+ Q_CONDITIONr_chronic Q_CONDITIONr_pain Q_PREVENTIONr_chronic
+ Min.   :0.0000       Min.   :0.000     Min.   :0.0000       
+ 1st Qu.:0.0000       1st Qu.:0.000     1st Qu.:0.0000       
+ Median :0.0000       Median :0.000     Median :0.0000       
+ Mean   :0.2191       Mean   :0.149     Mean   :0.2051       
+ 3rd Qu.:0.0000       3rd Qu.:0.000     3rd Qu.:0.0000       
+ Max.   :1.0000       Max.   :1.000     Max.   :1.0000       
+ Q_PREVENTIONr_pain   cluster         
+ Min.   :0.0000     Length:785        
+ 1st Qu.:0.0000     Class :character  
+ Median :0.0000     Mode  :character  
+ Mean   :0.1911                       
+ 3rd Qu.:0.0000                       
+ Max.   :1.0000                       
+
+[[2]]
+ Q_AGESCREENERr1 Q_CONDITIONr1    Q_CONDITIONr2    Q_CONDITIONr3   
+ Min.   :18.00   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:34.00   1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.0000  
+ Median :47.00   Median :0.0000   Median :0.0000   Median :0.0000  
+ Mean   :46.29   Mean   :0.3072   Mean   :0.3876   Mean   :0.2851  
+ 3rd Qu.:59.00   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :70.00   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+ Q_CONDITIONr4    Q_CONDITIONr5    Q_CONDITIONr6    Q_CONDITIONr7   
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.0000  
+ Median :0.0000   Median :0.0000   Median :0.0000   Median :0.0000  
+ Mean   :0.2801   Mean   :0.3273   Mean   :0.4548   Mean   :0.1867  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:0.0000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+ Q_CONDITIONr8    Q_CONDITIONr9     Q_CONDITIONr10   Q_CONDITIONr11   
+ Min.   :0.0000   Min.   :0.00000   Min.   :0.0000   Min.   :0.00000  
+ 1st Qu.:0.0000   1st Qu.:0.00000   1st Qu.:0.0000   1st Qu.:0.00000  
+ Median :0.0000   Median :0.00000   Median :0.0000   Median :0.00000  
+ Mean   :0.4247   Mean   :0.06024   Mean   :0.1928   Mean   :0.06727  
+ 3rd Qu.:1.0000   3rd Qu.:0.00000   3rd Qu.:0.0000   3rd Qu.:0.00000  
+ Max.   :1.0000   Max.   :1.00000   Max.   :1.0000   Max.   :1.00000  
+ Q_CONDITIONr12   Q_CONDITIONr13   Q_CONDITIONr14   Q_CONDITIONr15  
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.0000  
+ Median :0.0000   Median :0.0000   Median :0.0000   Median :0.0000  
+ Mean   :0.1235   Mean   :0.2169   Mean   :0.2229   Mean   :0.1576  
+ 3rd Qu.:0.0000   3rd Qu.:0.0000   3rd Qu.:0.0000   3rd Qu.:0.0000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+ Q_CONDITIONr16   Q_CONDITIONr98    Q_PREVENTIONr1   Q_PREVENTIONr2 
+ Min.   :0.0000   Min.   :0.00000   Min.   :0.0000   Min.   :0.000  
+ 1st Qu.:0.0000   1st Qu.:0.00000   1st Qu.:0.0000   1st Qu.:0.000  
+ Median :0.0000   Median :0.00000   Median :0.0000   Median :1.000  
+ Mean   :0.1486   Mean   :0.07028   Mean   :0.3835   Mean   :0.511  
+ 3rd Qu.:0.0000   3rd Qu.:0.00000   3rd Qu.:1.0000   3rd Qu.:1.000  
+ Max.   :1.0000   Max.   :1.00000   Max.   :1.0000   Max.   :1.000  
+ Q_PREVENTIONr3  Q_PREVENTIONr4   Q_PREVENTIONr5  Q_PREVENTIONr6  
+ Min.   :0.000   Min.   :0.0000   Min.   :0.000   Min.   :0.0000  
+ 1st Qu.:0.000   1st Qu.:0.0000   1st Qu.:0.000   1st Qu.:0.0000  
+ Median :0.000   Median :0.0000   Median :0.000   Median :0.0000  
+ Mean   :0.492   Mean   :0.3976   Mean   :0.255   Mean   :0.4528  
+ 3rd Qu.:1.000   3rd Qu.:1.0000   3rd Qu.:1.000   3rd Qu.:1.0000  
+ Max.   :1.000   Max.   :1.0000   Max.   :1.000   Max.   :1.0000  
+ Q_PREVENTIONr7   Q_PREVENTIONr8   Q_PREVENTIONr9   Q_PREVENTIONr10 
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.0000  
+ Median :0.0000   Median :0.0000   Median :0.0000   Median :1.0000  
+ Mean   :0.2882   Mean   :0.4789   Mean   :0.3645   Mean   :0.5351  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+ Q_PREVENTIONr11  Q_PREVENTIONr12  Q_PREVENTIONr13  Q_PREVENTIONr14
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.000  
+ 1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.000  
+ Median :0.0000   Median :0.0000   Median :0.0000   Median :0.000  
+ Mean   :0.2259   Mean   :0.3323   Mean   :0.4307   Mean   :0.249  
+ 3rd Qu.:0.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:0.000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.000  
+ Q_PREVENTIONr15  Q_PREVENTIONr16  Q_PREVENTIONr17  Q_PREVENTIONr98   
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.000000  
+ 1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.000000  
+ Median :0.0000   Median :0.0000   Median :0.0000   Median :0.000000  
+ Mean   :0.4388   Mean   :0.3534   Mean   :0.1165   Mean   :0.001004  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:0.0000   3rd Qu.:0.000000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.000000  
+ Q_CONDITIONr_chronic Q_CONDITIONr_pain Q_PREVENTIONr_chronic
+ Min.   :0.0000       Min.   :0.0000    Min.   :0.0000       
+ 1st Qu.:0.0000       1st Qu.:0.0000    1st Qu.:1.0000       
+ Median :1.0000       Median :0.0000    Median :1.0000       
+ Mean   :0.5964       Mean   :0.4137    Mean   :0.8906       
+ 3rd Qu.:1.0000       3rd Qu.:1.0000    3rd Qu.:1.0000       
+ Max.   :1.0000       Max.   :1.0000    Max.   :1.0000       
+ Q_PREVENTIONr_pain   cluster         
+ Min.   :0.0000     Length:996        
+ 1st Qu.:0.0000     Class :character  
+ Median :1.0000     Mode  :character  
+ Mean   :0.5934                       
+ 3rd Qu.:1.0000                       
+ Max.   :1.0000                       
+
+[[3]]
+ Q_AGESCREENERr1 Q_CONDITIONr1 Q_CONDITIONr2 Q_CONDITIONr3 Q_CONDITIONr4
+ Min.   :18.00   Min.   :0     Min.   :0     Min.   :0     Min.   :0    
+ 1st Qu.:28.00   1st Qu.:0     1st Qu.:0     1st Qu.:0     1st Qu.:0    
+ Median :38.00   Median :0     Median :0     Median :0     Median :0    
+ Mean   :40.11   Mean   :0     Mean   :0     Mean   :0     Mean   :0    
+ 3rd Qu.:52.00   3rd Qu.:0     3rd Qu.:0     3rd Qu.:0     3rd Qu.:0    
+ Max.   :70.00   Max.   :0     Max.   :0     Max.   :0     Max.   :0    
+ Q_CONDITIONr5 Q_CONDITIONr6 Q_CONDITIONr7 Q_CONDITIONr8 Q_CONDITIONr9
+ Min.   :0     Min.   :0     Min.   :0     Min.   :0     Min.   :0    
+ 1st Qu.:0     1st Qu.:0     1st Qu.:0     1st Qu.:0     1st Qu.:0    
+ Median :0     Median :0     Median :0     Median :0     Median :0    
+ Mean   :0     Mean   :0     Mean   :0     Mean   :0     Mean   :0    
+ 3rd Qu.:0     3rd Qu.:0     3rd Qu.:0     3rd Qu.:0     3rd Qu.:0    
+ Max.   :0     Max.   :0     Max.   :0     Max.   :0     Max.   :0    
+ Q_CONDITIONr10 Q_CONDITIONr11 Q_CONDITIONr12 Q_CONDITIONr13 Q_CONDITIONr14
+ Min.   :0      Min.   :0      Min.   :0      Min.   :0      Min.   :0     
+ 1st Qu.:0      1st Qu.:0      1st Qu.:0      1st Qu.:0      1st Qu.:0     
+ Median :0      Median :0      Median :0      Median :0      Median :0     
+ Mean   :0      Mean   :0      Mean   :0      Mean   :0      Mean   :0     
+ 3rd Qu.:0      3rd Qu.:0      3rd Qu.:0      3rd Qu.:0      3rd Qu.:0     
+ Max.   :0      Max.   :0      Max.   :0      Max.   :0      Max.   :0     
+ Q_CONDITIONr15 Q_CONDITIONr16 Q_CONDITIONr98 Q_PREVENTIONr1 Q_PREVENTIONr2
+ Min.   :0      Min.   :0      Min.   :1      Min.   :0      Min.   :0     
+ 1st Qu.:0      1st Qu.:0      1st Qu.:1      1st Qu.:0      1st Qu.:0     
+ Median :0      Median :0      Median :1      Median :0      Median :0     
+ Mean   :0      Mean   :0      Mean   :1      Mean   :0      Mean   :0     
+ 3rd Qu.:0      3rd Qu.:0      3rd Qu.:1      3rd Qu.:0      3rd Qu.:0     
+ Max.   :0      Max.   :0      Max.   :1      Max.   :0      Max.   :0     
+ Q_PREVENTIONr3 Q_PREVENTIONr4 Q_PREVENTIONr5 Q_PREVENTIONr6 Q_PREVENTIONr7
+ Min.   :0      Min.   :0      Min.   :0      Min.   :0      Min.   :0     
+ 1st Qu.:0      1st Qu.:0      1st Qu.:0      1st Qu.:0      1st Qu.:0     
+ Median :0      Median :0      Median :0      Median :0      Median :0     
+ Mean   :0      Mean   :0      Mean   :0      Mean   :0      Mean   :0     
+ 3rd Qu.:0      3rd Qu.:0      3rd Qu.:0      3rd Qu.:0      3rd Qu.:0     
+ Max.   :0      Max.   :0      Max.   :0      Max.   :0      Max.   :0     
+ Q_PREVENTIONr8 Q_PREVENTIONr9 Q_PREVENTIONr10 Q_PREVENTIONr11 Q_PREVENTIONr12
+ Min.   :0      Min.   :0      Min.   :0       Min.   :0       Min.   :0      
+ 1st Qu.:0      1st Qu.:0      1st Qu.:0       1st Qu.:0       1st Qu.:0      
+ Median :0      Median :0      Median :0       Median :0       Median :0      
+ Mean   :0      Mean   :0      Mean   :0       Mean   :0       Mean   :0      
+ 3rd Qu.:0      3rd Qu.:0      3rd Qu.:0       3rd Qu.:0       3rd Qu.:0      
+ Max.   :0      Max.   :0      Max.   :0       Max.   :0       Max.   :0      
+ Q_PREVENTIONr13 Q_PREVENTIONr14 Q_PREVENTIONr15 Q_PREVENTIONr16
+ Min.   :0       Min.   :0       Min.   :0       Min.   :0      
+ 1st Qu.:0       1st Qu.:0       1st Qu.:0       1st Qu.:0      
+ Median :0       Median :0       Median :0       Median :0      
+ Mean   :0       Mean   :0       Mean   :0       Mean   :0      
+ 3rd Qu.:0       3rd Qu.:0       3rd Qu.:0       3rd Qu.:0      
+ Max.   :0       Max.   :0       Max.   :0       Max.   :0      
+ Q_PREVENTIONr17   Q_PREVENTIONr98 Q_CONDITIONr_chronic Q_CONDITIONr_pain
+ Min.   :0.00000   Min.   :0.000   Min.   :0            Min.   :0        
+ 1st Qu.:0.00000   1st Qu.:1.000   1st Qu.:0            1st Qu.:0        
+ Median :0.00000   Median :1.000   Median :0            Median :0        
+ Mean   :0.03196   Mean   :0.968   Mean   :0            Mean   :0        
+ 3rd Qu.:0.00000   3rd Qu.:1.000   3rd Qu.:0            3rd Qu.:0        
+ Max.   :1.00000   Max.   :1.000   Max.   :0            Max.   :0        
+ Q_PREVENTIONr_chronic Q_PREVENTIONr_pain   cluster         
+ Min.   :0             Min.   :0          Length:219        
+ 1st Qu.:0             1st Qu.:0          Class :character  
+ Median :0             Median :0          Mode  :character  
+ Mean   :0             Mean   :0                            
+ 3rd Qu.:0             3rd Qu.:0                            
+ Max.   :0             Max.   :0                            
+
