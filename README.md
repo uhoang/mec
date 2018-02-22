@@ -13,8 +13,10 @@ This project was built in R language for the data team at Moutain Equipment Coor
 │   ├── my_sildist.R
 │   └── rename_vars.R
 ├── output
-│   ├── clustered_data.rds
-│   └── gower_dist.rds
+│   ├── gower_dist.rds
+│   ├── kmean_stability_assessment.txt
+│   ├── sample_data.txt
+│   └── summary.txt
 ├── README.md
 ├── settings.R
 ├── src
